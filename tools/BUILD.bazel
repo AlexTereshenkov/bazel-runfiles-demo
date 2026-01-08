@@ -1,0 +1,25 @@
+load("@rules_python//python:defs.bzl", "py_binary")
+
+package(default_visibility = ["//visibility:public"])
+
+py_binary(
+    name = "archiver",
+    srcs = ["archiver.py"],
+    data = [
+        # http_file
+        "@zstd_cli//file",
+        # http_archive
+        "@yq_cli//:yq_linux_amd64",
+        # local file (in a Bazel package)
+        "//src:sources.txt",
+        # local file (not in a Bazel package)
+        "//:adhoc/data.json",
+    ],
+    env = {
+        "ZSTD_COMPRESSION_LEVEL": "10",
+    },
+    tags = ["manual"],
+    deps = [
+        "@rules_python//python/runfiles",
+    ],
+)

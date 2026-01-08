@@ -1,0 +1,5 @@
+/bazel-*
+/release/
+.cache/
+.clwb/
+.idea/
