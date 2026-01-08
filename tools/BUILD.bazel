@@ -14,6 +14,8 @@ py_binary(
         "//src:sources.txt",
         # local file (not in a Bazel package)
         "//:adhoc/data.json",
+        # build target (to be built by Bazel)
+        "//src:helpers"
     ],
     env = {
         "ZSTD_COMPRESSION_LEVEL": "10",

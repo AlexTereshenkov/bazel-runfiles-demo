@@ -1,4 +1,10 @@
 package(default_visibility = ["//visibility:public"])
 
+cc_library(
+    name = "helpers",
+    srcs = ["helpers.cc"],
+    visibility = ["//visibility:public"],
+)
+
 # to access by a `py_binary` target under `data`
 exports_files(["sources.txt"])

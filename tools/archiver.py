@@ -22,11 +22,17 @@ sources_txt = runfiles.Rlocation("_main/src/sources.txt")
 # local workspace file location (not in a Bazel package)
 data_json = runfiles.Rlocation("_main/adhoc/data.json")
 
+# the actual output file name is `libhelpers.so` for the shared `cc_library`
+# where `helpers` is the name of the target; the output file name might vary
+# depending on the type of the rule
+helpers_so = runfiles.Rlocation("_main/src/libhelpers.so")
+
 pairs = [
     ("zstd", ZSTD_CLI),
     ("yq", YQ_CLI),
     ("Data file tracked by Bazel", sources_txt),
     ("Data file not tracked by Bazel", data_json),
+    ("Data file produced by Bazel from a build target", helpers_so),
 ]
 for pair in pairs:
     print(pair)
