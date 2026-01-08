@@ -15,6 +15,7 @@ This repository contains a working example of a Python script that is run with `
 * [http_archive](https://bazel.build/rules/lib/repo/http#http_archive)
 * a file that is part of a Bazel package (labeled `//path/from/root:filename.ext`)
 * a standalone file that is **not** part of a Bazel package (a directory without `BUILD` file) (labeled `//:dirname/filename.ext`)
+* an output file produced by Bazel when a build target (e.g., `cc_library`) is built
 
 ## `bazel run`
 
@@ -32,6 +33,8 @@ INFO: Running command line: bazel-bin/tools/archiver
 ('yq', '/home/username/.cache/bazel/_bazel_username/254dc3e965daf05650054d94e27038ea/external/+_repo_rules+yq_cli/yq_linux_amd64')
 ('Data file tracked by Bazel', '/home/username/code/projects/bazel-runfiles-demo/src/sources.txt')
 ('Data file not tracked by Bazel', '/home/username/code/projects/bazel-runfiles-demo/adhoc/data.json')
+('Data file produced by Bazel from a build target', '/home/username/.cache/bazel/_bazel_username/254dc3e965daf05650054d94e27038ea/execroot/_main/bazel-out/k8-fastbuild/bin/src/libhelpers.so')
+
 Pretty print of JSON with yq:
 {
   "a": "A",
