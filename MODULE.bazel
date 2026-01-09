@@ -3,7 +3,7 @@ module(
     repo_name = "bazel-runfiles-demo",
 )
 
-bazel_dep(name = "rules_python", version = "1.5.1")
+bazel_dep(name = "rules_python", version = "1.8.0-rc1")
 
 http_archive = use_repo_rule("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
 
